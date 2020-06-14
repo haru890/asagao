@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-
   before_action :login_required
 
   # 会員一覧
@@ -23,7 +22,7 @@ class MembersController < ApplicationController
     @member = Member.new(birthday: Date.new(1980, 1, 1))
   end
 
-  # 更新フォーム
+  # 編集フォーム
   def edit
     @member = Member.find(params[:id])
   end
