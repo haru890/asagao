@@ -3,4 +3,11 @@ class ApplicationController < ActionController::Base
     Member.find_by(id: session[:member_id]) if session[:member_id]
   end
   helper_method :current_member
+
+  class LoginRequired < StandardError; end
+  class Forbidden < StandardError; end
+
+  private def LoginRequired
+    raise LoginRequired unless current_member
+  end
 end
