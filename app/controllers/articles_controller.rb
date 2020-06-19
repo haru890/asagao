@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   # 記事詳細
   def show
-    @article = articles.find(params[:id])
+    articles = articles.open_to_the_public unless current_member
   end
 
   # 新規登録フォーム
@@ -21,4 +21,31 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # 新規作成
+  def create
+    @article = Article.new(params[:article])
+    if @article.save
+      redirect_to @article, notice: "ニュース記事を登録しました。"
+    else
+      render "new"
+    end
+  end
+
+  # 更新
+  def update
+    @article = Article.find(params[:id])
+    @article.assign_attributes(params[:article])
+    if @article.save
+      redirect_to @article, notice: "ニュース記事を更新しました。"
+    else
+      render "edit"
+    end
+  end
+
+  # 削除
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to :articles
+  end
 end
