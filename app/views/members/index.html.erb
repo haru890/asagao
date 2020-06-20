@@ -18,21 +18,22 @@
         <th>操作</th>
       </tr>
     </thead>
-  <tbody>
-    <% @members.each do |member| %>
-      <tr>
-        <td style="text-align: right"><%= member.number %></td>
-        <td><%= link_to member.name, member %></td>
-        <td><%= member.full_name %></td>
-        <td>
-          <%= link_to "編集", [:edit, member] %> |
-          <%= link_to "削除", member, method: :delete,
-                data: {confirm: "本当に削除しますか？" } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td style="text-align: right"><%= member.number %></td>
+          <td><%= link_to member.name, member %></td>
+          <td><%= member.full_name %></td>
+          <td>
+            <%= link_to "編集", [:edit, member] %> |
+            <%= link_to "削除", member, method: :delete,
+              data: { confirm: "本当に削除しますか?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
+  <%= paginate @members %>
 <% else %>
   <p>会員情報がありません。</p>
 <% end %>
