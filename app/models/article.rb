@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   validates :body, length: { maximum: 2000 }
 
   def no_expiration
-    expired_at.blank?
+    expired_at.nil?
   end
 
   def no_expiration=(val)
