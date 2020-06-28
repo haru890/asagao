@@ -6,15 +6,9 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 
-# 開発・テスト環境ではSQLite3を使う
-group :development, :test do
-  gem 'sqlite3', '1.4.2'
-end
+gem 'sqlite3', groups: %w(test development), require: false
 
-# 本番環境ではPostgresqlを使う
-group :production do
-  gem 'pg', '1.2.3'
-end
+gem 'pg', groups: %w(production), require: false
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
