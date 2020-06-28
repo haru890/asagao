@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.0'
 
 # 開発・テスト環境ではSQLite3を使う
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '1.4.2'
 end
 
 # 本番環境ではPostgresqlを使う

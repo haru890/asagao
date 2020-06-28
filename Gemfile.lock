@@ -261,7 +261,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
+  sqlite3 (= 1.4.2)
   therubyracer
   turbolinks (~> 5)
   tzinfo-data
