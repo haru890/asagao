@@ -10,6 +10,9 @@ gem 'sqlite3', groups: %w(test development), require: false
 
 gem 'pg', groups: %w(production), require: false
 
+# ログを標準出力にストリームする
+gem "rails_12factor", group: :production
+
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
